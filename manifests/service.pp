@@ -6,15 +6,15 @@ class pulp::service {
   # we dont really want to run the pulp-server init.d
   # it restarts other daemons that we manage via puppet too
   # this simply acts as a synchronization point
-  service {"pulp-server":
+  service {'pulp-server':
     ensure    => stopped,
     enable    => false,
     hasstatus => false,
     require   => [
-      Class["pulp::config"],
-      Class["mongodb::service"],
-      Class["qpid::service"],
-      Class["apache2::service"]
+      Class['pulp::config'],
+      Class['mongodb::service'],
+      Class['qpid::service'],
+      Class['apache2::service']
       ],
   }
 }
